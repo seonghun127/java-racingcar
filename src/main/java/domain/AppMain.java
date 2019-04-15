@@ -18,10 +18,7 @@ package domain;
  */
 public class AppMain {
     public static void main(String[] args) {
-        Game game = new Game(
-                new UserInterfaceImpl(),
-                new RandomNumberGenerator()
-        );
+        Game game = new Game(new UserInterfaceImpl());
         game.play();
     }
 }

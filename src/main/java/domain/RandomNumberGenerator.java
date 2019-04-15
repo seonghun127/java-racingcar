@@ -10,7 +10,7 @@ public class RandomNumberGenerator {
     private static final int RANDOM_NUMBER_RANGE_MAX = 10;
     private static final int RANDOM_NUMBER_RANGE_MIN = 0;
 
-    int generateRandomNumber() {
+    static int generateRandomNumber() {
         int randomNumber = (int) (Math.random() * RANDOM_NUMBER_RANGE_MAX);
         if (randomNumber < RANDOM_NUMBER_RANGE_MIN || randomNumber >= RANDOM_NUMBER_RANGE_MAX) {
             throw new IllegalArgumentException();

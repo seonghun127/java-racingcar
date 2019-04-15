@@ -24,11 +24,9 @@ import java.util.List;
  */
 public class Game {
     private UserInterface userInterface;
-    private RandomNumberGenerator randomNumberGenerator;
 
-    Game(UserInterface userInterface, RandomNumberGenerator randomNumberGenerator) {
+    Game(UserInterface userInterface) {
         this.userInterface = userInterface;
-        this.randomNumberGenerator = randomNumberGenerator;
     }
 
     void play() {
@@ -69,7 +67,7 @@ public class Game {
 
     private List<Car> movementOfAllCars(List<Car> cars) {
         for (Car car : cars) {
-            car.moveCar(randomNumberGenerator.generateRandomNumber());
+            car.moveCar(RandomNumberGenerator.generateRandomNumber());
         }
         return cars;
     }
