@@ -1,7 +1,5 @@
 package domain;
 
-import java.util.List;
-
 /**
  * 사용자에게 보여지는 화면의 인터페이스를 담당
  *
@@ -9,11 +7,11 @@ import java.util.List;
  * @version 1.0
  */
 public interface UserInterface {
-    List<String> getCarNames() throws IllegalArgumentException;     // 자동차 이름 입력
+    String[] getCarNames() throws IllegalArgumentException;     // 자동차 이름 입력
 
     int getRoundCount() throws IllegalArgumentException;       // 시도할 회수 입력
 
-    void printResult(Car car);                                  // 실행 결과 출력
+    void printResult();                                  // 실행 결과 출력
 
     void printWinners(String winners);                          // 우승자 출력
 }

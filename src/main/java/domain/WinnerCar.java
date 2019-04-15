@@ -10,15 +10,15 @@ import java.util.List;
  * @version 1.0 2019/04/15  우승 자동차를 계산하는 메소드 구현
  */
 public class WinnerCar {
-    private List<Car> cars;
+    private List<Car> carsOnFinishedRace;
 
-    WinnerCar(List<Car> cars) {
-        this.cars = cars;
+    WinnerCar(List<Car> carsOnFinishedRace) {
+        this.carsOnFinishedRace = carsOnFinishedRace;
     }
 
     int getMaxDistance() {
         int maxDistance = 0;
-        for (Car car : cars) {
+        for (Car car : carsOnFinishedRace) {
             if (car.getPosition() > maxDistance) {
                 maxDistance = car.getPosition();
             }
@@ -28,7 +28,7 @@ public class WinnerCar {
 
     String getWinners(int maxDistance) {
         List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
+        for (Car car : carsOnFinishedRace) {
             if (car.isMaxPosition(maxDistance)) {
                 winners.add(car.getName());
             }

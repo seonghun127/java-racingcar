@@ -15,17 +15,9 @@ public class UserInterfaceImpl implements UserInterface {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     @Override
-    public List<String> getCarNames() {
-        List<String> carNameList = new ArrayList<>();
+    public String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분, 길이는 5이하만)");
-        String[] carNames = SCANNER.nextLine().replaceAll(" ", "").trim().split(",");
-        for (String carName : carNames) {
-            if (carNameList.contains(carName)) {
-                throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");
-            }
-            carNameList.add(carName);
-        }
-        return carNameList;
+        return SCANNER.nextLine().replaceAll(" ", "").trim().split(",");
     }
 
     @Override
@@ -39,8 +31,8 @@ public class UserInterfaceImpl implements UserInterface {
     }
 
     @Override
-    public void printResult(Car car) {
-        car.printCarDistance();
+    public void printResult() {
+        System.out.println("실행결과\n");
     }
 
     @Override

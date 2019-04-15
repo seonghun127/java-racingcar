@@ -30,15 +30,31 @@ public class Game {
     }
 
     void play() {
-        WinnerCar winnerCar = new WinnerCar(movementOfAllCarsByRound(setCars(), setRoundCount()));
+        CarsOnRace carsOnRace = new CarsOnRace(setCars(), setRoundCount());
+        userInterface.printResult();
+        WinnerCar winnerCar = new WinnerCar(carsOnRace.movementOfAllCarsByRoundCount());
         userInterface.printWinners(winnerCar.getWinners(winnerCar.getMaxDistance()));
+    }
+
+    private List<String> parseStringArrayToList() {
+        List<String> carNameList = new ArrayList<>();
+        for (String carName : userInterface.getCarNames()) {
+            if (carNameList.contains(carName)) {
+                throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");
+            }
+            carNameList.add(carName);
+        }
+        return carNameList;
     }
 
     private List<Car> setCars() {
         try {
             List<Car> cars = new ArrayList<>();
-            for (String carName : userInterface.getCarNames()) {
+            for (String carName : parseStringArrayToList()) {
                 cars.add(new Car(carName));
+            }
+            if(cars.isEmpty()){
+                throw new IllegalArgumentException("올바른 입력이 아닙니다.");
             }
             return cars;
         } catch (Exception e) {
@@ -53,28 +69,6 @@ public class Game {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return setRoundCount();
-        }
-    }
-
-    private List<Car> movementOfAllCarsByRound(List<Car> cars, int roundCount) {
-        System.out.println("실행결과\n");
-        for (int i = 0; i < roundCount; i++) {
-            printCarsPositionEachRound(movementOfAllCars(cars));
-            System.out.println();
-        }
-        return cars;
-    }
-
-    private List<Car> movementOfAllCars(List<Car> cars) {
-        for (Car car : cars) {
-            car.moveCar(RandomNumberGenerator.generateRandomNumber());
-        }
-        return cars;
-    }
-
-    private void printCarsPositionEachRound(List<Car> cars) {
-        for (Car car : cars) {
-            userInterface.printResult(car);
         }
     }
 }
