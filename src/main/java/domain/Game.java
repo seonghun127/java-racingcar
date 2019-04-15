@@ -39,8 +39,7 @@ public class Game {
     private List<Car> setCars() {
         try {
             List<Car> cars = new ArrayList<>();
-            List<String> carNames = userInterface.getCarNames();
-            for (String carName : carNames) {
+            for (String carName : userInterface.getCarNames()) {
                 cars.add(new Car(carName));
             }
             return cars;
@@ -60,7 +59,7 @@ public class Game {
     }
 
     private List<Car> movementOfAllCarsByRound(List<Car> cars, int roundCount) {
-        System.out.println("실행결과");
+        System.out.println("실행결과\n");
         for (int i = 0; i < roundCount; i++) {
             printCarsPositionEachRound(movementOfAllCars(cars));
             System.out.println();
