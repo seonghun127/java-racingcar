@@ -53,9 +53,6 @@ public class Game {
             for (String carName : parseStringArrayToList()) {
                 cars.add(new Car(carName));
             }
-            if(cars.isEmpty()){
-                throw new IllegalArgumentException("올바른 입력이 아닙니다.");
-            }
             return cars;
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -11,13 +11,18 @@ import java.util.Scanner;
  * @version 1.0 2019/04/15  사용자 화면에 보여질 화면 인터페이스 구현
  */
 public class UserInterfaceImpl implements UserInterface {
+    private static final int CAR_NAME_LENGTH_LIMIT = 0;
     private static final int ROUND_COUNT_LIMIT = 0;
     private static final Scanner SCANNER = new Scanner(System.in);
 
     @Override
     public String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분, 길이는 5이하만)");
-        return SCANNER.nextLine().replaceAll(" ", "").trim().split(",");
+        String[] carNames =  SCANNER.nextLine().replaceAll(" ", "").trim().split(",", 0);
+        if(carNames.length == CAR_NAME_LENGTH_LIMIT){
+            throw new IllegalArgumentException("올바른 입력이 아닙니다.");
+        }
+        return carNames;
     }
 
     @Override

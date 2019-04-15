@@ -20,14 +20,13 @@ package domain;
  */
 public class Car {
     private static final int CAR_NAME_LENGTH_MAX = 5;
-    private static final int CAR_NAME_LENGTH_MIN = 0;
     private static final int MOVEMENT_CRITERIA = 4;
 
     private final String name;
     private int position = 0;
 
     Car(String name) {
-        if (name.length() <= CAR_NAME_LENGTH_MIN || name.length() > CAR_NAME_LENGTH_MAX) {
+        if (name.length() > CAR_NAME_LENGTH_MAX) {
             throw new IllegalArgumentException("범위에서 벗어난 이름이 있습니다.");
         }
         this.name = name;
