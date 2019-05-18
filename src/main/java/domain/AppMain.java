@@ -1,5 +1,5 @@
 /*
- * AppMain
+ * AppMain.java
  *
  * version 1.2
  *

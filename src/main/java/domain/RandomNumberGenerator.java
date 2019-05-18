@@ -10,6 +10,7 @@ public class RandomNumberGenerator {
     private static final int RANDOM_NUMBER_RANGE_MAX = 10;
     private static final int RANDOM_NUMBER_RANGE_MIN = 0;
 
+    /* 난수 발생 메소드는 인스턴스화 호출이 필요없다고 판단되어 static 으로 선언 (바로 호출) */
     static int generateRandomNumber() {
         int randomNumber = (int) (Math.random() * RANDOM_NUMBER_RANGE_MAX);
         if (randomNumber < RANDOM_NUMBER_RANGE_MIN || randomNumber >= RANDOM_NUMBER_RANGE_MAX) {
